@@ -1,4 +1,4 @@
-from . import led
+from led import app
 
 if __name__ == "__main__":
-    led.app.run()
+    app.run()

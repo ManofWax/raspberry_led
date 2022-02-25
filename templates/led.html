@@ -1,0 +1,12 @@
+<!doctype html>
+<title>Gestione LED</title>
+<h1>Gestione LED</h1>
+<p>Il led è: {{ led_status}}</p>
+<form action="/led" method="post" id="form1">
+    <label for="fname">LED status:</label>
+    <select id="led_status" name="led_status">
+        <option value="on">on</option>
+        <option value="off">off</option>
+    </select>
+</form>
+<button type="submit" form="form1" value="Submit">Submit</button>

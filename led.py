@@ -1,7 +1,9 @@
 from flask import Flask, request, render_template
-from gpiozero import LED
+from flask_bootstrap import Bootstrap
+#from gpiozero import LED
 
 app = Flask(__name__)
+Bootstrap(app)
 
 @app.route("/")
 def index():
@@ -9,7 +11,7 @@ def index():
 
 @app.route("/led", methods=['GET', 'POST'])
 def led():
-    led = LED(2, initial_value=None)
+    #led = LED(2, initial_value=None)
     led_status = "on" if led.is_lit() else "off"
     if request.method == 'POST':
         led_status = request.form['led_status']

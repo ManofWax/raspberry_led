@@ -12,7 +12,7 @@ def index():
 @app.route("/led", methods=['GET', 'POST'])
 def led():
     led = LED(2, initial_value=None)
-    led_status = "on" if led.is_lit() else "off"
+    led_status = "on" if led.is_lit else "off"
     if request.method == 'POST':
         led_status = request.form['led_status']
         if led_status == "on":

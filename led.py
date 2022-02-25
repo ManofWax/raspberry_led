@@ -4,6 +4,7 @@ from gpiozero import LED
 
 app = Flask(__name__)
 Bootstrap(app)
+led_gpio = LED(2, initial_value=False)
 
 @app.route("/")
 def index():
@@ -11,7 +12,7 @@ def index():
 
 @app.route("/led", methods=['GET', 'POST'])
 def led():
-    led = LED(2, initial_value=None)
+    led = led_gpio
     led_status = "on" if led.is_lit else "off"
     if request.method == 'POST':
         led_status = request.form['led_status']
